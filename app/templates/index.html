@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quran Verse Semantic Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Quran Verse Semantic Search</h1>
+        <div class="description">Search the Holy Quran by topic to discover relevant verses and their meanings</div>
+        <form action="/search" method="POST">
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Topics...">
+                <button class="submit-button"></button>
+            </div>
+        </form>
+    </div>
+    <div class="results">
+        <div class="result-card">
+            <p class="result-arabic">فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًۭا</p>
+            <hr>
+            <p class="result-text">Indeed, with hardship comes ease.</p>
+            <p class="result-reference">Surah 94, Verse 6</p>
+        </div>
+        <div class="result-card">
+            <p class="result-arabic">فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًۭا</p>
+            <hr>
+            <p class="result-text">Indeed, with hardship comes ease.</p>
+            <p class="result-reference">Surah 94, Verse 6</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

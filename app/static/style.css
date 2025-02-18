@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FBFFE4;
+    color: #3D8D7A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+h1 {
+    color: #3D8D7A;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #1e1e1e;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.search-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #B3D8A8;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: white;
+    height: 45px;
+}
+
+.search-box {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.submit-button {
+    background-color: transparent;
+    color: #3D8D7A;
+    padding: 12px 12px 14px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button::after {
+    content: '\2192';
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.submit-button:hover {
+    color: #B3D8A8;
+}
+
+.results {
+    margin: 20px auto auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #FBFFE4;
+    text-align: left;
+    color: #3D8D7A;
+}
+
+.result-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.result-card hr {
+    margin: 0;
+}
+
+.result-text {
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+    color: #3D8D7A;
+    margin-bottom: 10px;
+}
+
+.result-arabic {
+    font-size: 1.2rem;
+    text-align: right;
+    color: #1E3A34;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
+.result-reference {
+    font-size: 0.9rem;
+    color: #3D8D7A;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
