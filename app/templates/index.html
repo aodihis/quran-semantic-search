@@ -19,13 +19,16 @@
     </div>
     <div class="results" id="results">
     </div>
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
 </div>
 <script>
     document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from actually submitting
-
+    const loader = document.getElementById("loadingOverlay");
     const topic = document.getElementById('topic').value; // Get value from input field with id 'topic'
-
+    loader.classList.remove('hidden');
     fetch('/query', {
         method: 'POST',
         headers: {
@@ -51,15 +54,20 @@
                 `;
 
                 resultsContainer.appendChild(card);
+                loader.classList.add('hidden');
             });
         } else {
             // Handle error, e.g., display an error message
             console.error('API request failed:', data.status);
+            alert("Failed to search for verses. Please try again a few seconds later.");
+            loader.classList.add('hidden');
         }
     })
     .catch(error => {
         // Handle network errors or other exceptions
         console.error('API request error:', error);
+        alert("Failed to search for verses. Please try again a few seconds later.");
+        loader.classList.add('hidden');
     });
 });
 
