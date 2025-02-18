@@ -17,7 +17,6 @@ def query_documents():
             query=query_texts,
             n_results=n_results
         )
-        print(results)
         return jsonify({'status': 'success', 'results': results})
     except Exception as e:
         current_app.logger.error(f"Error querying documents: {str(e)}")

@@ -9,7 +9,6 @@ class VectorService:
         results = self._collection.similarity_search(query, k=n_results)
         ret = []
         for result in results:
-            print(result.metadata)
             ret.append({
                 'arabic': result.metadata['arabic'],
                 'verse_no': result.metadata['ayah_no'],
