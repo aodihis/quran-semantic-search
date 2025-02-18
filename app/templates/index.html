@@ -10,28 +10,59 @@
     <div class="header">
         <h1>Quran Verse Semantic Search</h1>
         <div class="description">Search the Holy Quran by topic to discover relevant verses and their meanings</div>
-        <form action="/search" method="POST">
+        <form action="/search" method="POST" id="search-form">
             <div class="search-container">
-                <input type="text" class="search-box" placeholder="Topics...">
+                <input type="text" class="search-box" placeholder="Topics..." name="topic" id="topic" required>
                 <button class="submit-button"></button>
             </div>
         </form>
     </div>
-    <div class="results">
-        <div class="result-card">
-            <p class="result-arabic">فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًۭا</p>
-            <hr>
-            <p class="result-text">Indeed, with hardship comes ease.</p>
-            <p class="result-reference">Surah 94, Verse 6</p>
-        </div>
-        <div class="result-card">
-            <p class="result-arabic">فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًۭا</p>
-            <hr>
-            <p class="result-text">Indeed, with hardship comes ease.</p>
-            <p class="result-reference">Surah 94, Verse 6</p>
-        </div>
+    <div class="results" id="results">
     </div>
-
 </div>
+<script>
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from actually submitting
+
+    const topic = document.getElementById('topic').value; // Get value from input field with id 'topic'
+
+    fetch('/query', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 'query': topic })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            const resultsContainer = document.getElementById('results'); // Create a container element in your HTML
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            data.results.forEach(result => {
+                const card = document.createElement('div');
+                card.classList.add('result-card');
+
+                card.innerHTML = `
+                    <p class="result-arabic">${result.arabic}</p>
+                    <hr>
+                    <p class="result-text">${result.en_translation}</p>
+                    <p class="result-reference">Surah ${result.surah_no}, Verse ${result.verse_no}</p>
+                `;
+
+                resultsContainer.appendChild(card);
+            });
+        } else {
+            // Handle error, e.g., display an error message
+            console.error('API request failed:', data.status);
+        }
+    })
+    .catch(error => {
+        // Handle network errors or other exceptions
+        console.error('API request error:', error);
+    });
+});
+
+</script>
 </body>
 </html>

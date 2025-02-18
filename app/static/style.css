@@ -80,6 +80,8 @@ h1 {
     background-color: #FBFFE4;
     text-align: left;
     color: #3D8D7A;
+    overflow-y: auto;
+    max-height: 65vh;
 }
 
 .result-card {
@@ -117,4 +119,26 @@ h1 {
     font-weight: bold;
     text-align: right;
     margin-top: 10px;
+}
+
+.results {
+    scrollbar-width: thin;
+    scrollbar-color: #3D8D7A  transparent;
+}
+
+.results::-webkit-scrollbar { /* WebKit browsers (Chrome, Safari) */
+  width: 8px; /* Width of the scrollbar */
+}
+
+.results::-webkit-scrollbar-track { /* Track (the area behind the thumb) */
+  background: #3D8D7A; /* Color of the track */
+}
+
+.results::-webkit-scrollbar-thumb { /* Thumb (the draggable part) */
+  background: #B3D8A8 ; /* Color of the thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+.results::-webkit-scrollbar-thumb:hover { /* Thumb on hover */
+  background: #888;
 }
